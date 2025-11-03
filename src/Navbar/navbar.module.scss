@@ -1,0 +1,28 @@
+nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 30px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  :link {
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+  }
+}
+.cart {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 25px;
+  img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: black solid 1px;
+    padding: 5px;
+  }
+}

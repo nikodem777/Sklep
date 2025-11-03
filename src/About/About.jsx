@@ -1,0 +1,26 @@
+import styles from "./about.module.scss";
+import Sofa from "../assets/sofa.png";
+const About = () => {
+  return (
+    <div className={styles.container}>
+      <div className={styles.text}>
+        <h1>About Farnic</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing scelerisque a
+          tincidunt urna nisl quam orci males
+        </p>
+      </div>
+      <div className={styles.imgBox}>
+        <img
+          src={Sofa}
+          alt=""
+          style={{
+            width: "450px",
+            height: "250px",
+          }}
+        />
+      </div>
+    </div>
+  );
+};
+export default About;

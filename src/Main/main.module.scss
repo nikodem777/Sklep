@@ -1,0 +1,51 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 60px 0;
+}
+.imgBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    max-width: 100%;
+    vertical-align: middle;
+    display: inline-block;
+  }
+}
+.textBox {
+  margin-left: 60px;
+  line-height: 33px;
+  h1 {
+    font-size: 50px;
+    margin-bottom: 45px;
+    color: #1e1c1c;
+  }
+  h4 {
+    font-size: 20px;
+    color: #738284;
+  }
+  p {
+    font-size: 17px;
+    margin-top: 25px;
+    color: #8b8b8b;
+  }
+}
+.numbers {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 200px;
+  color: #223d3f;
+
+  h3 {
+    font-size: 50px;
+
+    margin-bottom: 20px;
+  }
+  p {
+    font-size: 20px;
+
+    margin-top: 0px;
+  }
+}

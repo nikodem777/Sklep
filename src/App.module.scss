@@ -1,6 +1,13 @@
+.box {
+  display: flex;
+  justify-content: center;
+  background-color: #eff1f5;
+}
 .container {
-  background-color: black;
-  a {
-    color: blue;
-  }
+  width: 80vw;
+}
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
