@@ -1,8 +1,13 @@
-.numbers {
+.container {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 200px;
+}
+.numbers {
+  width: 65vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   color: #223d3f;
 
   h3 {

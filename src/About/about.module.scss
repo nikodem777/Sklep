@@ -1,4 +1,14 @@
+.box {
+  display: flex;
+  justify-content: center;
+  background-color: #eff1f5;
+  padding-top: 25px;
+}
 .container {
+  width: 80vw;
+}
+
+.container2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 20px 0 80px 0;

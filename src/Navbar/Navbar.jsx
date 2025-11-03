@@ -6,31 +6,33 @@ import User from "../assets/user.svg";
 
 const Navbar = () => {
   return (
-    <nav>
-      <div className={styles.logo}>
-        <Link to="/">
-          <img src={Logo} alt="" />
-        </Link>
-        <Link to="/" style={{ color: "black" }}>
-          Home
-        </Link>
-        <Link to="/about" style={{ color: "black" }}>
-          About
-        </Link>
-        <a href="" style={{ color: "black" }}>
-          Contact
-        </a>
-      </div>
+    <div className={styles.box}>
+      <nav className={styles.container}>
+        <div className={styles.logo}>
+          <Link to="/">
+            <img src={Logo} alt="" />
+          </Link>
+          <Link to="/" style={{ color: "black" }}>
+            Home
+          </Link>
+          <Link to="/about" style={{ color: "black" }}>
+            About
+          </Link>
+          <a href="" style={{ color: "black" }}>
+            Contact
+          </a>
+        </div>
 
-      <div className={styles.cart}>
-        <Link to="/">
-          <img src={User} alt="" />
-        </Link>
-        <Link to="/cart">
-          <img src={Cart} alt="" />
-        </Link>
-      </div>
-    </nav>
+        <div className={styles.cart}>
+          <Link to="/">
+            <img src={User} alt="" />
+          </Link>
+          <Link to="/cart">
+            <img src={Cart} alt="" />
+          </Link>
+        </div>
+      </nav>
+    </div>
   );
 };
 export default Navbar;

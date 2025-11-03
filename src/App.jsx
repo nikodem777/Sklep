@@ -10,17 +10,13 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 function App() {
   return (
     <BrowserRouter>
-      <div className={styles.box}>
-        <div className={styles.container}>
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<Main />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/cart" element={<Cart />} />
-          </Routes>
-          <Footer />
-        </div>
-      </div>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/cart" element={<Cart />} />
+      </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }
