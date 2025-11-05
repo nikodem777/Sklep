@@ -7,13 +7,14 @@ const Entry = () => {
       <div className={styles.box}>
         <div className={styles.container}>
           <div className={styles.textBox}>
-            <p>45% MEGA SALE OFFER</p>
-            <h1>Unique & Stylish Furniture</h1>
+            <p>-45% MEGA OFERTA</p>
+            <h1>Unikalne & Stylowne Meble</h1>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit quam
-              scelerisque a tincidunt urna. Nisl, quam orci malesuada
+              Meble inspirowane naturą, wykonane z najwyższej jakości
+              materiałów. Prosty, a zarazem wyjątkowy styl dla miłośników
+              ciepłych wnętrz.
             </p>
-            <button>SHOP NOW</button>
+            <button>ZOBACZ OFERTĘ</button>
           </div>
           <div className={styles.imgBox}>
             <img src={LampChair} alt="" />

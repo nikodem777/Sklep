@@ -1,19 +1,26 @@
 import styles from "./products.module.scss";
-import Product from "./Product.jsx";
+import ProductItem from "./ProductItem.jsx";
+import { useStore } from "@nanostores/react";
+import { $products } from "../../store/products";
 const Products = () => {
+  const products = useStore($products);
   return (
     <>
       <div className={styles.box}>
         <div className={styles.container}>
-          <h1>Featured Collections</h1>
-          <p>Most Selling and Trending Product</p>
+          <h1>Najnowsza kolekcja</h1>
+          <p>Najlepiej sprzedawane i nowe produkty</p>
           <div className={styles.productBox}>
-            <Product />
-            <Product />
-            <Product />
-            <Product />
-            <Product />
-            <Product />
+            {products.map((product) => (
+              <ProductItem
+                key={product.id}
+                // image={product.image}
+                // name={product.name}
+                // price={product.price}
+                // priceBefore={product.priceBefore}
+                product={product}
+              />
+            ))}
           </div>
         </div>
       </div>

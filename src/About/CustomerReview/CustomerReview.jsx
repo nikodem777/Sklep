@@ -8,27 +8,27 @@ const CustomerReview = () => {
       <div className={styles.box}>
         <div className={styles.container}>
           <div className={styles.header}>
-            <h1>Happy Customers Review</h1>
+            <h1>Dobre Opinie Klientów</h1>
             <p>
-              Features that we have which Lorem ipsum dolor sit amet,
-              consectetur convallis. Arcu, egestas nec scelerisque mi. Augue
-              proin
+              Nasi klienci doceniają wysoką jakość wykonania i niezawodność
+              naszych mebli. Dobre opinie potwierdzają, że tworzymy produkty
+              warte zaufania.
             </p>
           </div>
           <div className={styles.split}>
             <div className={styles.imgBox}>
               <img src={Woman} alt="" />
-              <h3>Ramoses Galario</h3>
-              <p>Sydney, Australia</p>
+              <h3>Alex Pinko</h3>
+              <p>Tychy, Polska</p>
               <img src={Rating} alt="" />
             </div>
             <div className={styles.quotesBox}>
               <img src={Quotes} alt="" />
               <p>
-                Furniture best dolor sit amet, consectetur adipiscing elit. Duis
-                ectus mauris, ullamcorper mauris amet, erat amet. Ornare vitae
-                cursus tra purus. Ut enim sed id consectetur velit ullamcorper
-                tempus
+                Meble są przepiękne i idealnie pasują do mojego salonu! Widać,
+                że wykonane z najwyższą starannością i z dbałością o szczegóły.
+                Obsługa klienta była przemiła — z pewnością wrócę po kolejne
+                zakupy
               </p>
             </div>
           </div>

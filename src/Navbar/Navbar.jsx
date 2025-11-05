@@ -3,8 +3,13 @@ import { Link } from "react-router-dom";
 import Logo from "../assets/logoSklep.png";
 import Cart from "../assets/cart-icon.svg";
 import User from "../assets/user.svg";
+import ProductItem from "../Main/Products/ProductItem";
 
-const Navbar = () => {
+import { useStore } from "@nanostores/react";
+import { $numberOfItems } from "../store/cart";
+
+const Navbar = ({ onScrollToFooter }) => {
+  const total = useStore($numberOfItems);
   return (
     <div className={styles.box}>
       <nav className={styles.container}>
@@ -13,13 +18,13 @@ const Navbar = () => {
             <img src={Logo} alt="" />
           </Link>
           <Link to="/" style={{ color: "black" }}>
-            Home
+            Strona główna
           </Link>
           <Link to="/about" style={{ color: "black" }}>
-            About
+            O nas
           </Link>
-          <a href="" style={{ color: "black" }}>
-            Contact
+          <a onClick={onScrollToFooter} style={{ color: "black" }}>
+            Kontakt
           </a>
         </div>
 
@@ -28,7 +33,10 @@ const Navbar = () => {
             <img src={User} alt="" />
           </Link>
           <Link to="/cart">
-            <img src={Cart} alt="" />
+            <div className={styles.cartWrapper}>
+              <img src={Cart} alt="Koszyk" className={styles.cartIcon} />
+              <div className={styles.cartCount}>{total}</div>
+            </div>
           </Link>
         </div>
       </nav>

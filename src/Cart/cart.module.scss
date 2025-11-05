@@ -1,0 +1,40 @@
+.box {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  padding-bottom: 30px;
+}
+.container {
+  width: 80vw;
+}
+.productBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .quantity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .quantity button {
+    width: 32px;
+    height: 32px;
+    border: 1px solid white;
+    border-radius: 50%;
+    background-color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .quantity input {
+    width: 40px;
+    height: 32px;
+    text-align: center;
+    border: 1px solid #000;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+}

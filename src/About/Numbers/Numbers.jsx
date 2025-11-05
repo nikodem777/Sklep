@@ -7,19 +7,19 @@ const Numbers = () => {
         <div className={styles.numbers}>
           <div className="num1">
             <h3>20k+</h3>
-            <p>Properties</p>
+            <p>Właściwości</p>
           </div>
           <div className="num2">
             <h3>12k+</h3>
-            <p>Customers</p>
+            <p>Klientów</p>
           </div>
           <div className="num3">
             <h3>62+</h3>
-            <p>Agents</p>
+            <p>Agentów</p>
           </div>
           <div className="num4">
             <h3>160+</h3>
-            <p>Awards Win</p>
+            <p>Materiałow</p>
           </div>
         </div>
       </div>

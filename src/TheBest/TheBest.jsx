@@ -10,33 +10,32 @@ const TheBest = () => {
       <div className={styles.box}>
         <div className={styles.container}>
           <div className={styles.header}>
-            <h1>Why We are the Best?</h1>
+            <h1>Dlaczego jesteśmy najlepsi?</h1>
             <p>
-              Features that we have which Lorem ipsum dolor sit amet,
-              consectetur convallis. Arcu, egestas nec scelerisque mi. Augue
-              proin
+              Innowacyjny design, perfekcyjne wykonanie i dbałość o każdy detal
+              — to nas wyróżnia.
             </p>
           </div>
           <div className={styles.split}>
             <Box
               image={Boksik}
-              header="Free Shipping"
-              description="Buy product over $100 and get free home delivery offer"
+              header="Darmowa dostawa"
+              description="Kup coś za min. 100 zł i ciesz się darmową przesyłką"
             />
             <Box
               image={Return}
-              header=" Return Policy"
-              description="Provide 30 day easy Return policy for all of our customer"
+              header="Polityka Zwrotów"
+              description="Łatwy zwrot 30 dni od zakupu przedmiotu"
             />
             <Box
               image={Wallet}
-              header="Secure Payment"
-              description="We conform you that payment system are totally secure"
+              header="Bezpieczne płatności"
+              description="Zapewniamy bezpieczeństwo przy dokonywaniu płatności"
             />
             <Box
               image={Star}
-              header="Best Quality"
-              description="We never compromize about our quality and always concern"
+              header="Najlepsza jakość"
+              description="Zapewniamy najlepszą jakość produktu dla naszego klienta"
             />
           </div>
         </div>

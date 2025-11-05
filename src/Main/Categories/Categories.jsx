@@ -11,15 +11,15 @@ const Categories = () => {
     <>
       <div className={styles.box}>
         <div className={styles.container}>
-          <h1>Choose your Category</h1>
-          <p>Select your product from our category options</p>
+          <h1>Wybierz Kategorię</h1>
+          <p>Wybierz swój nowy produkt z pośród naszych kategorii</p>
           <div className={styles.split}>
-            <Category image={Chair} description="Chair" />
-            <Category image={Bed} description="Bed" />
+            <Category image={Chair} description="Krzesła" />
+            <Category image={Bed} description="Łózka" />
             <Category image={ElegantChair} description="Sofa" />
-            <Category image={Table} description="Table" />
-            <Category image={SideDrawer} description="Side Drawer" />
-            <Category image={DiningChair} description="Dining Chair" />
+            <Category image={Table} description="Stół" />
+            <Category image={SideDrawer} description="Szafka Nocna" />
+            <Category image={DiningChair} description="Krzesło stołowe" />
           </div>
         </div>
       </div>

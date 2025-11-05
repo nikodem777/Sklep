@@ -10,10 +10,11 @@ const About = () => {
         <div className={styles.container}>
           <div className={styles.container2}>
             <div className={styles.text}>
-              <h1>About Farnic</h1>
+              <h1>O Farnic</h1>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing scelerisque a
-                tincidunt urna nisl quam orci males
+                Tworzymy meble, które łączą funkcjonalność z ponadczasowym
+                stylem. Każdy projekt powstaje z pasji do detalu i jakości
+                wykonania.
               </p>
             </div>
             <div className={styles.imgBox}>
