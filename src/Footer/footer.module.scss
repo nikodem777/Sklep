@@ -1,0 +1,55 @@
+.box {
+  display: flex;
+  justify-content: center;
+  background-color: #eff1f5;
+  padding: 50px 0;
+}
+.container {
+  width: 80vw;
+}
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  h3 {
+    font-size: 35px;
+    color: #1e1c1c;
+  }
+  p {
+    color: #494949;
+    line-height: 25px;
+  }
+}
+
+.followUs {
+  width: 200px;
+  margin-bottom: 20px;
+  color: #494949;
+  line-height: 42px;
+  img {
+    margin-top: 30px;
+  }
+  h4 {
+    font-size: 25px;
+  }
+  .picture {
+    display: flex;
+    gap: 20px;
+  }
+}
+.contactUs {
+  h4 {
+    font-size: 20px;
+    color: #1e1c1c;
+  }
+}
+.Box2 {
+  background-color: white;
+  text-align: center;
+  p {
+    padding: 20px 0;
+    font-size: 20px;
+    span {
+      font-weight: 900;
+    }
+  }
+}

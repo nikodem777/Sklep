@@ -1,6 +1,8 @@
 import styles from "./about.module.scss";
 import Sofa from "../assets/sofa.png";
 import Numbers from "./Numbers/Numbers";
+import TheBest from "../TheBest/TheBest";
+import CustomerReview from "./CustomerReview/CustomerReview";
 const About = () => {
   return (
     <>
@@ -28,6 +30,8 @@ const About = () => {
         </div>
       </div>
       <Numbers />
+      <TheBest />
+      <CustomerReview />
     </>
   );
 };

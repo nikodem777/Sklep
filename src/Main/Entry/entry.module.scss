@@ -1,0 +1,39 @@
+.box {
+  display: flex;
+  justify-content: center;
+  background-color: #eff1f5;
+}
+.container {
+  width: 80vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.textBox {
+  padding-top: 80px;
+  p {
+    color: #494949;
+    font-size: 18px;
+    letter-spacing: 2px;
+  }
+  h1 {
+    color: #1c1c1c;
+    font-size: 60px;
+  }
+  button {
+    background-color: black;
+    color: #eff1f5;
+    padding: 15px 30px;
+    margin-top: 30px;
+    &:hover {
+      background-color: white;
+      color: black;
+    }
+  }
+}
+.imgBox {
+  padding: 30px;
+  img {
+    height: 530px;
+    width: 530px;
+  }
+}

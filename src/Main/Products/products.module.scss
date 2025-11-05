@@ -1,0 +1,22 @@
+.box {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  padding-bottom: 30px;
+}
+.container {
+  width: 80vw;
+  h1 {
+    font-size: 50px;
+    color: #1c1c1c;
+    margin-bottom: 0;
+  }
+  p {
+    font-size: 23px;
+    color: #494949;
+  }
+}
+.productBox {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}

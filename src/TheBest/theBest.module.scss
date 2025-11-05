@@ -1,0 +1,46 @@
+.box {
+  display: flex;
+  justify-content: center;
+  background-color: #3f4c49;
+  padding-top: 30px;
+}
+.container {
+  width: 80vw;
+}
+.header {
+  text-align: center;
+  h1 {
+    color: #dfeee3;
+    font-family: "Playfair Display", sans-serif;
+    margin-bottom: 10px;
+    line-height: 1.25;
+    font-weight: 700;
+  }
+  p {
+    color: #aeacac;
+  }
+}
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.box2 {
+  padding-top: 30px;
+  width: 200px;
+  p {
+    color: #aeacac;
+  }
+  h2 {
+    color: #dfeee3;
+  }
+}
+.imgBox {
+  display: flex;
+  justify-content: center;
+
+  img {
+    padding-top: 10px;
+    margin-right: 9px;
+    height: 70px;
+  }
+}
