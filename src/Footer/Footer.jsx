@@ -6,7 +6,6 @@ import Twitter from "../assets/twitter.svg";
 import Instagram from "../assets/instagram.svg";
 import Be from "../assets/be.svg";
 
-
 const Footer = forwardRef((props, ref) => {
   return (
     <>
@@ -54,8 +53,8 @@ const Footer = forwardRef((props, ref) => {
       </div>
       <div className={styles.Box2}>
         <p>
-          © 2022 zaprojektowano i opracowano przez <span>Brandbes</span>.
-          Obsługiwane przez <span>Webflow</span>.
+          © 2025 zaprojektowano i opracowano przez{" "}
+          <span>Nikodem Waśniowski</span>.
         </p>
       </div>
     </>

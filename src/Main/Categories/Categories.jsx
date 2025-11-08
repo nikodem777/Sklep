@@ -15,7 +15,7 @@ const Categories = () => {
           <p>Wybierz swój nowy produkt z pośród naszych kategorii</p>
           <div className={styles.split}>
             <Category image={Chair} description="Krzesła" />
-            <Category image={Bed} description="Łózka" />
+            <Category image={Bed} description="Łóżka" />
             <Category image={ElegantChair} description="Sofa" />
             <Category image={Table} description="Stół" />
             <Category image={SideDrawer} description="Szafka Nocna" />

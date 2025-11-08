@@ -1,0 +1,43 @@
+.box {
+  display: flex;
+  justify-content: center;
+  padding: 80px 0;
+}
+.container {
+  width: 80vw;
+}
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.imgBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    height: 550px;
+    width: 550px;
+    border: black solid 1px;
+    border-radius: 20%;
+  }
+}
+.textBox {
+  text-align: left;
+  h1 {
+    font-size: 60px;
+    padding-top: 0;
+    margin-top: 0;
+  }
+  p {
+    color: #494949;
+  }
+  .cena {
+    font-size: 40px;
+  }
+  .opis {
+    font-size: 20px;
+    span {
+      font-weight: 700;
+    }
+  }
+}
