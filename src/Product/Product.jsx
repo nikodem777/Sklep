@@ -1,18 +1,35 @@
 import { useParams } from "react-router-dom";
-import { useStore } from "@nanostores/react";
-import { $products } from "../store/products";
-import { getDiscountedPrice } from "../store/products";
+import { useEffect, useState } from "react";
+import { getAllProducts } from "../api/productsAPI";
+import { getDiscountedPrice } from "../helpers/product.helper";
 import styles from "./product.module.scss";
 
 const Product = () => {
   const { id } = useParams(); // pobiera id z URL
-  const products = useStore($products);
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const data = await getAllProducts(); // pobieramy z API
+        setProducts(data);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
+  if (loading) return <p>Ładowanie…</p>;
 
   // znajdź produkt o danym id
   const product = products.find((p) => p.id === Number(id));
-  const discounted = getDiscountedPrice(product);
-
   if (!product) return <p>Nie znaleziono produktu</p>;
+  const discounted = getDiscountedPrice(product);
 
   return (
     <div className={styles.box}>

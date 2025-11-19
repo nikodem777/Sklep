@@ -2,7 +2,7 @@ import styles from "./productItem.module.scss";
 import Cart from "../../assets/cart-icon.svg";
 import { Link } from "react-router-dom";
 import { addToCart } from "../../store/cart";
-import { getDiscountedPrice } from "../../store/products";
+import { getDiscountedPrice } from "../../helpers/product.helper";
 
 const ProductItem = ({ product }) => {
   const discounted = getDiscountedPrice(product);

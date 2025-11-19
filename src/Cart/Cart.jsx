@@ -1,6 +1,7 @@
 import styles from "./cart.module.scss";
-
+import { useState } from "react";
 import { useStore } from "@nanostores/react";
+import { useEffect } from "react";
 
 import {
   $cartWithDiscount,
@@ -12,6 +13,30 @@ import {
 const Cart = () => {
   const cart = useStore($cartWithDiscount);
   const total = useStore($total);
+  const [userInfo, setuserInfo] = useState({
+    firstName: "",
+    lastName: "",
+    adress: "",
+  });
+  const [paymentInfo, setpaymentInfo] = useState("");
+
+  const handleUser = (e) => {
+    const { name, value } = e.target;
+    setuserInfo((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handlePayment = (e) => {
+    setpaymentInfo(e.target.value);
+  };
+  useEffect(() => {
+    console.log("Aktualny userInfo:", userInfo);
+  }, [userInfo]);
+  useEffect(() => {
+    console.log("Aktualny paymentInfo:", paymentInfo);
+  }, [paymentInfo]);
   return (
     <div className={styles.box}>
       <div className={styles.container}>
@@ -64,24 +89,63 @@ const Cart = () => {
           <div className={styles.clientInformation}>
             <h1>Dane klienta</h1>
             <p>Imię:</p>
-            <input type="text" />
+            <input
+              type="text"
+              name="firstName"
+              value={userInfo.firstName}
+              onChange={handleUser}
+              placeholder="Podaj imię..."
+            />
             <p>Nazwisko:</p>
-            <input type="text" />
+            <input
+              type="text"
+              name="lastName"
+              value={userInfo.lastName}
+              onChange={handleUser}
+              placeholder="Podaj nazwisko..."
+            />
             <p>Adres:</p>
-            <input type="text" />
+            <input
+              type="text"
+              name="adress"
+              value={userInfo.adress}
+              onChange={handleUser}
+              placeholder="Podaj adres..."
+            />
           </div>
           <div className={styles.payment}>
             <h1>Sposób płatności</h1>
             <div className={styles.checkPayment}>
-              <input type="checkbox" name="" id="" />
+              <input
+                className={styles.radio}
+                type="radio"
+                name="payment"
+                value="onDelivery"
+                checked={paymentInfo === "onDelivery"}
+                onChange={handlePayment}
+              />
               <p>Płatność przy odbiorze</p>
             </div>
             <div className={styles.checkPayment}>
-              <input type="checkbox" name="" id="" />
+              <input
+                className={styles.radio}
+                type="radio"
+                name="payment"
+                value="byCard"
+                checked={paymentInfo === "byCard"}
+                onChange={handlePayment}
+              />
               <p>Płatność kartą</p>
             </div>
             <div className={styles.checkPayment}>
-              <input type="checkbox" name="" id="" />
+              <input
+                className={styles.radio}
+                type="radio"
+                name="payment"
+                value="byBLIK"
+                checked={paymentInfo === "byBLIK"}
+                onChange={handlePayment}
+              />
               <p>Płatność BLIK</p>
             </div>
             <button>ZAMÓW</button>

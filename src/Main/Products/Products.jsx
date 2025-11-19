@@ -1,9 +1,13 @@
 import styles from "./products.module.scss";
 import ProductItem from "./ProductItem.jsx";
-import { useStore } from "@nanostores/react";
-import { $products } from "../../store/products";
+import { useEffect, useState } from "react";
+import { getAllProducts } from "../../api/productsAPI";
 const Products = () => {
-  const products = useStore($products);
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    getAllProducts().then(setProducts).catch(console.error);
+  }, []);
   return (
     <>
       <div className={styles.box}>

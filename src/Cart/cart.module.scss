@@ -132,6 +132,21 @@
       input {
         width: 30px;
       }
+      .radio {
+        display: grid;
+        place-content: center;
+        appearance: none;
+        margin: 27px 0 0;
+        width: 30px;
+        height: 30px;
+        align-items: center;
+        background-color: white;
+        border: #494949 1px solid;
+        border-radius: 50%;
+      }
+      .radio:checked {
+        background-color: #494949;
+      }
     }
     button {
       margin-top: 20px;
