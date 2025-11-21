@@ -2,6 +2,8 @@ import styles from "./cart.module.scss";
 import { useState } from "react";
 import { useStore } from "@nanostores/react";
 import { useEffect } from "react";
+import { addOrder } from "../api/orderAPI";
+import { Link } from "react-router-dom";
 
 import {
   $cartWithDiscount,
@@ -37,6 +39,64 @@ const Cart = () => {
   useEffect(() => {
     console.log("Aktualny paymentInfo:", paymentInfo);
   }, [paymentInfo]);
+  const [message, setMessage] = useState("");
+  const [messageOrder, setMessageOrder] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleOrder = async () => {
+    // walidacja
+    if (
+      !userInfo.firstName.trim() ||
+      !userInfo.lastName.trim() ||
+      !userInfo.adress.trim()
+    ) {
+      setMessage("Proszę uzupełnić wszystkie pola użytkownika!");
+      return;
+    }
+
+    if (!paymentInfo) {
+      setMessage("Proszę wybrać metodę płatności!");
+      return;
+    }
+
+    if (cart.length === 0) {
+      setMessage("Koszyk jest pusty!");
+      return;
+    }
+
+    // jeśli wszystko jest ok → wysyłamy zamówienie
+    setLoading(true);
+    setMessage("");
+
+    try {
+      const orderData = {
+        user: { ...userInfo },
+        payment: paymentInfo,
+        items: cart.map((item) => ({
+          id: item.id,
+          name: item.name,
+          quantity: item.quantity,
+          price: item.finalPrice,
+        })),
+        totalPrice: total.toFixed(2),
+      };
+
+      const res = await addOrder(orderData);
+      setMessageOrder(`Zamówienie dodane! ID: ${res.id}`);
+      // opcjonalnie czyścimy formularz i koszyk
+      setuserInfo({ firstName: "", lastName: "", adress: "" });
+      setpaymentInfo("");
+      // clearCart(); // jeśli masz funkcję do czyszczenia koszyka
+    } catch (err) {
+      console.error(err);
+      setMessage("Wystąpił błąd przy dodawaniu zamówienia");
+    } finally {
+      setLoading(false);
+    }
+    setIsOpen(true);
+  };
+
   return (
     <div className={styles.box}>
       <div className={styles.container}>
@@ -104,6 +164,7 @@ const Cart = () => {
               onChange={handleUser}
               placeholder="Podaj nazwisko..."
             />
+
             <p>Adres:</p>
             <input
               type="text"
@@ -148,7 +209,28 @@ const Cart = () => {
               />
               <p>Płatność BLIK</p>
             </div>
-            <button>ZAMÓW</button>
+            <button onClick={handleOrder}>ZAMÓW</button>
+            {message && <p style={{ color: "red" }}>{message}</p>}
+            {isOpen && (
+              <div className={styles.overlay}>
+                <div className={styles.modal}>
+                  <h2 className={styles.title}>Twoje Zamówienie</h2>
+
+                  <p className={styles.id}>{messageOrder}</p>
+
+                  <Link to={"/"}>
+                    <button
+                      onClick={() => {
+                        setIsOpen(false);
+                      }}
+                      className={styles.closeBtn}
+                    >
+                      Powrót na stronę główną
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

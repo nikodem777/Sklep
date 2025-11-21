@@ -1,0 +1,140 @@
+.box {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  padding: 50px 0;
+}
+.container {
+  width: 80vw;
+}
+.center {
+  display: flex;
+  justify-content: center;
+}
+.toggleContainer {
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 350px;
+  height: 50px;
+}
+
+.toggleBtn {
+  flex: 1;
+  padding: 10px 0;
+  border: solid 1px #494949;
+  background-color: white;
+  color: #494949;
+  transition: all 0.3s ease;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.active {
+  background-color: #494949;
+  color: white;
+}
+.move {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .create {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    h2 {
+      font-size: 40px;
+      color: #333;
+      font-weight: 600;
+    }
+
+    input {
+      border: 1px solid #494949;
+      border-radius: 12px;
+      padding: 15px 0 15px 10px;
+      margin: 5px;
+      text-align: left;
+      color: #494949;
+      text-overflow: ellipsis;
+      font-size: large;
+    }
+    .formNameInfo {
+      display: flex;
+      gap: 20px;
+    }
+
+    .formLoginInfo {
+      margin-top: 35px;
+      display: flex;
+      flex-direction: column;
+    }
+    .btnBox {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 35px 0;
+
+      button {
+        margin: 20px;
+        width: 65%;
+        height: 50px;
+        background-color: #494949;
+        border: white solid 1px;
+        color: white;
+        font-size: large;
+        font-weight: 500;
+        border-radius: 12px;
+        transition: 0.2s;
+        &:hover {
+          color: #494949;
+          background-color: white;
+          border: 1px solid #494949;
+        }
+      }
+    }
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    h2 {
+      font-size: 40px;
+      color: #333;
+      font-weight: 600;
+    }
+
+    input {
+      border: 1px solid #494949;
+      border-radius: 12px;
+      padding: 15px 0 15px 10px;
+      margin: 10px;
+      width: 320px;
+      text-align: left;
+      color: #494949;
+      text-overflow: ellipsis;
+      font-size: large;
+    }
+    button {
+      margin: 20px;
+      width: 65%;
+      height: 50px;
+      background-color: #494949;
+      border: white solid 1px;
+      color: white;
+      font-size: large;
+      font-weight: 500;
+      border-radius: 12px;
+      transition: 0.2s;
+      &:hover {
+        color: #494949;
+        background-color: white;
+        border: 1px solid #494949;
+      }
+    }
+  }
+}

@@ -7,9 +7,12 @@ import ProductItem from "../Main/Products/ProductItem";
 
 import { useStore } from "@nanostores/react";
 import { $numberOfItems } from "../store/cart";
+import { useState } from "react";
 
 const Navbar = ({ onScrollToFooter }) => {
   const total = useStore($numberOfItems);
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <div className={styles.box}>
       <nav className={styles.container}>
@@ -29,9 +32,26 @@ const Navbar = ({ onScrollToFooter }) => {
         </div>
 
         <div className={styles.cart}>
-          <Link to="/">
+          <div
+            className={styles.user}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
             <img src={User} alt="" />
-          </Link>
+            {isHovered && (
+              <ul className={styles.list}>
+                <li>
+                  <Link
+                    to={"/Login"}
+                    style={{ textDecoration: "none", color: "black" }}
+                  >
+                    Zaloguj
+                  </Link>
+                </li>
+              </ul>
+            )}
+          </div>
+
           <Link to="/cart">
             <div className={styles.cartWrapper}>
               <img src={Cart} alt="Koszyk" className={styles.cartIcon} />

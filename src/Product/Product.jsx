@@ -1,19 +1,20 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getAllProducts } from "../api/productsAPI";
+import { getProductById } from "../api/productsAPI";
 import { getDiscountedPrice } from "../helpers/product.helper";
 import styles from "./product.module.scss";
 
 const Product = () => {
   const { id } = useParams(); // pobiera id z URL
-  const [products, setProducts] = useState([]);
+  const [product, setProduct] = useState({});
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const data = await getAllProducts(); // pobieramy z API
-        setProducts(data);
+        const data = await getProductById(id);
+        console.log(data); // pobieramy z API
+        setProduct(data);
       } catch (err) {
         console.error(err);
       } finally {
@@ -26,9 +27,7 @@ const Product = () => {
 
   if (loading) return <p>Ładowanie…</p>;
 
-  // znajdź produkt o danym id
-  const product = products.find((p) => p.id === Number(id));
-  if (!product) return <p>Nie znaleziono produktu</p>;
+  
   const discounted = getDiscountedPrice(product);
 
   return (

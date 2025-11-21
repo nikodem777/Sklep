@@ -7,6 +7,8 @@ import About from "./About/About";
 import Product from "./Product/Product";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useRef } from "react";
+import ScrollToTop from "./ScrollToTop";
+import Login from "./Login/Login";
 
 function App() {
   const footerRef = useRef(null);
@@ -17,8 +19,10 @@ function App() {
   return (
     <BrowserRouter>
       <Navbar onScrollToFooter={scrollToFooter} />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Main />} />
+        <Route path="/Login" element={<Login />} />
         <Route path="/about" element={<About />} />
         <Route path="/product/:id" element={<Product />} />
         <Route path="/cart" element={<Cart />} />
