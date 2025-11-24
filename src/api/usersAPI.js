@@ -11,9 +11,8 @@ export async function addUser(user) {
   return await res.json();
 }
 
-
-export async function getUserById(login) {
-    const res = await fetch(`${BASE_URL}/${login}`);
-    if (!res.ok) throw new Error("Nie znaleziono produktu");
-    return await res.json();
-  }
+export async function getUserById(id) {
+  const res = await fetch(`${USERS_URL}/${id}`);
+  if (!res.ok) throw new Error("Nie znaleziono produktu");
+  return await res.json();
+}

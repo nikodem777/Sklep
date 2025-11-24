@@ -3,13 +3,12 @@ import { Link } from "react-router-dom";
 import Logo from "../assets/logoSklep.png";
 import Cart from "../assets/cart-icon.svg";
 import User from "../assets/user.svg";
-import ProductItem from "../Main/Products/ProductItem";
 
 import { useStore } from "@nanostores/react";
 import { $numberOfItems } from "../store/cart";
 import { useState } from "react";
 
-const Navbar = ({ onScrollToFooter }) => {
+const Navbar = ({ onScrollToFooter, isLoggedIn, handleLogout }) => {
   const total = useStore($numberOfItems);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -40,14 +39,35 @@ const Navbar = ({ onScrollToFooter }) => {
             <img src={User} alt="" />
             {isHovered && (
               <ul className={styles.list}>
-                <li>
-                  <Link
-                    to={"/Login"}
-                    style={{ textDecoration: "none", color: "black" }}
-                  >
-                    Zaloguj
-                  </Link>
-                </li>
+                {isLoggedIn ? (
+                  <>
+                    <li>
+                      <Link
+                        to={"/Account"}
+                        style={{ textDecoration: "none", color: "black" }}
+                      >
+                        Moje konto
+                      </Link>
+                    </li>
+                    <li onClick={handleLogout}>
+                      <Link
+                        to={"/"}
+                        style={{ textDecoration: "none", color: "black" }}
+                      >
+                        Wyloguj
+                      </Link>
+                    </li>
+                  </>
+                ) : (
+                  <li>
+                    <Link
+                      to={"/Login"}
+                      style={{ textDecoration: "none", color: "black" }}
+                    >
+                      Zaloguj
+                    </Link>
+                  </li>
+                )}
               </ul>
             )}
           </div>

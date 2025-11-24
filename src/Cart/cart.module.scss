@@ -110,7 +110,9 @@
     }
     input {
       width: 170px;
-      height: 25px;
+      height: 35px;
+      border-radius: 10px;
+      padding-left: 10px;
     }
   }
   .payment {
@@ -176,7 +178,7 @@
 
   .modal {
     background-color: white;
-    height: 40%;
+    height: 45%;
     width: 40%;
     display: flex;
     flex-direction: column;
@@ -210,4 +212,31 @@
       }
     }
   }
+}
+
+.toggleContainer {
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 350px;
+  height: 50px;
+}
+
+.toggleBtn {
+  flex: 1;
+  padding: 10px 0;
+  border: solid 1px #494949;
+  background-color: white;
+  color: #494949;
+  transition: all 0.3s ease;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.active {
+  background-color: #494949;
+  color: white;
 }

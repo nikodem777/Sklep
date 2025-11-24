@@ -50,7 +50,11 @@ nav {
     li {
       width: 80px;
       text-align: center;
+      &:nth-child(1) {
+        border-bottom: #494949 solid 1px;
+      }
     }
+
     button {
       border: none;
       background-color: white;

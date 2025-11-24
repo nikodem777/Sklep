@@ -1,107 +1,101 @@
-import { addUser } from "../api/usersAPI";
-import styles from "./login.module.scss";
 import { useState } from "react";
 import { loginUser } from "../api/loginAPI";
-
-const Login = () => {
+import { addUser } from "../api/usersAPI";
+import { Link } from "react-router-dom";
+import styles from "./login.module.scss";
+import { useNavigate } from "react-router-dom";
+const Login = ({ setIsLoggedIn }) => {
   const [active, setActive] = useState("zarejestruj");
+  const navigate = useNavigate();
 
-  const [userInfo, setuserInfo] = useState({
+  const initialUser = {
     firstName: "",
     lastName: "",
     adress: "",
     login: "",
     password: "",
     checkPassword: "",
-  });
-  const handleUser = (e) => {
-    const { name, value } = e.target;
-    setuserInfo((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
   };
+  // stan dla rejestracji
+  const [userInfo, setUserInfo] = useState(initialUser);
 
-  const [message, setMessage] = useState("");
-
-  const handleUserRegister = async () => {
-    if (
-      !userInfo.firstName.trim() ||
-      !userInfo.lastName.trim() ||
-      !userInfo.adress.trim() ||
-      !userInfo.login.trim() ||
-      !userInfo.password.trim() ||
-      !userInfo.checkPassword.trim()
-    ) {
-      setMessage("Wszystkie pola muszą być wypełnione");
-      return;
-    }
-
-    if (userInfo.password !== userInfo.checkPassword) {
-      setMessage("Hasła muszą być takie same");
-      return;
-    }
-
-    setMessage("");
-
-    try {
-      const userData = {
-        firstName: userInfo.firstName,
-        lastName: userInfo.lastName,
-        adress: userInfo.adress,
-        login: userInfo.login,
-        password: userInfo.password,
-      };
-
-      await addUser(userData);
-
-      setuserInfo({
-        firstName: "",
-        lastName: "",
-        adress: "",
-        login: "",
-        password: "",
-        checkPassword: "",
-      });
-
-      setMessage("Użytkownik zarejestrowany pomyślnie!");
-    } catch (err) {
-      console.log(err);
-      setMessage("Błąd serwera");
-    }
-  };
-
+  // stan dla logowania
   const [loginInfo, setLoginInfo] = useState({
     logLogin: "",
     logPassword: "",
   });
 
-  const handleLogin = (e) => {
+  // stan dla komunikatów
+  const [registerMessage, setRegisterMessage] = useState("");
+  const [loginMessage, setLoginMessage] = useState("");
+
+  // obsługa inputów rejestracji
+  const handleUser = (e) => {
     const { name, value } = e.target;
-    setLoginInfo((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setUserInfo((prev) => ({ ...prev, [name]: value }));
   };
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // obsługa inputów logowania
+  const handleLoginChange = (e) => {
+    const { name, value } = e.target;
+    setLoginInfo((prev) => ({ ...prev, [name]: value }));
+  };
 
-  const handleLoginUser = async () => {
-    const { logLogin, logPassword } = loginInfo;
+  // rejestracja użytkownika
+  const handleUserRegister = async () => {
+    if (Object.values(userInfo).some((value) => !value.trim())) {
+      setRegisterMessage("Wszystkie pola muszą być wypełnione");
+      return;
+    }
+
+    if (userInfo.password !== userInfo.checkPassword) {
+      setRegisterMessage("Hasła muszą być takie same");
+      return;
+    }
+
+    setRegisterMessage("");
+
     try {
-      const token = await loginUser(logLogin, logPassword);
+      const { checkPassword, ...userData } = userInfo;
 
-      // zapisujemy token w localStorage
-      localStorage.setItem("authToken", token);
+      await addUser(userData);
 
-      // możesz też ustawić stan w React, np. isLoggedIn
-      setIsLoggedIn(true);
+      setUserInfo(initialUser);
+
+      setRegisterMessage("Użytkownik zarejestrowany pomyślnie!");
     } catch (err) {
-      console.error("Błąd logowania:", err);
+      console.error(err);
+      setRegisterMessage("Błąd serwera");
     }
   };
 
-  console.log(loginInfo);
+  const [isOpen, setIsOpen] = useState(false);
+
+  // logowanie użytkownika
+  const handleLoginUser = async () => {
+    const { logLogin, logPassword } = loginInfo;
+
+    if (!logLogin.trim() || !logPassword.trim()) {
+      setLoginMessage("Wypełnij wszystkie pola logowania");
+      return;
+    }
+
+    try {
+      const { token } = await loginUser(logLogin, logPassword);
+
+      // zapis tokena w localStorage
+      localStorage.setItem("authToken", token);
+
+      setIsLoggedIn(true);
+      setLoginMessage("");
+      setIsOpen(true);
+      // reset formularza logowania
+      setLoginInfo({ logLogin: "", logPassword: "" });
+    } catch (err) {
+      console.error("Błąd logowania:", err);
+      setLoginMessage("Niepoprawny login lub hasło");
+    }
+  };
 
   return (
     <div className={styles.box}>
@@ -126,8 +120,9 @@ const Login = () => {
             </button>
           </div>
         </div>
+
         <div className={styles.move}>
-          {/* Warunkowe wyświetlanie formularzy */}
+          {/* Formularz rejestracji */}
           {active === "zarejestruj" && (
             <div className={styles.create}>
               <h2>Utwórz konto</h2>
@@ -136,7 +131,7 @@ const Login = () => {
                   type="text"
                   placeholder="Imię"
                   name="firstName"
-                  value={userInfo.name}
+                  value={userInfo.firstName}
                   onChange={handleUser}
                 />
                 <input
@@ -180,36 +175,65 @@ const Login = () => {
               <div className={styles.btnBox}>
                 <button onClick={handleUserRegister}>Zarejestruj</button>
               </div>
-              {message && <p className={styles.message}>{message}</p>}
+              {registerMessage && (
+                <p
+                  className={styles.registerMessage}
+                  style={{
+                    color: registerMessage.includes("pomyślnie")
+                      ? "green"
+                      : "red",
+                  }}
+                >
+                  {registerMessage}
+                </p>
+              )}
             </div>
           )}
 
+          {/* Formularz logowania */}
           {active === "zaloguj" && (
             <div className={styles.form}>
               <h2>Zaloguj się</h2>
               <input
-                type="email"
+                type="text"
                 placeholder="Login"
                 name="logLogin"
                 value={loginInfo.logLogin}
-                onChange={handleLogin}
+                onChange={handleLoginChange}
               />
               <input
                 type="password"
                 placeholder="Hasło"
                 name="logPassword"
                 value={loginInfo.logPassword}
-                onChange={handleLogin}
+                onChange={handleLoginChange}
               />
               <div className={styles.btnBox}>
-                <button
-                  onClick={() => {
-                    handleLoginUser();
-                  }}
-                >
-                  Zaloguj
-                </button>
+                <button onClick={handleLoginUser}>Zaloguj</button>
               </div>
+              {loginMessage && (
+                <p className={styles.loginMessage}>{loginMessage}</p>
+              )}
+              {isOpen && (
+                <div className={styles.overlay}>
+                  <div className={styles.modal}>
+                    <h2 className={styles.title}>Użytkownik zalogowany!</h2>
+
+                    <Link to={"/"}>
+                      <button
+                        onClick={() => {
+                          setIsOpen(false);
+                          navigate("/"); // przeniesie na stronę główną
+                          window.location.reload();
+                        }}
+                        className={styles.closeBtn}
+                      >
+                        Powrót na stronę główną
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+              )}
             </div>
           )}
         </div>

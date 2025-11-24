@@ -17,14 +17,85 @@
       "password": "12"
     },
     {
-        "id": "e96d",
-        "firstName": "n",
-        "lastName": "w",
-        "adress": "a",
-        "login": "a",
-        "password": "a"
-      }
-
+      "id": "e96d",
+      "firstName": "n",
+      "lastName": "w",
+      "adress": "a",
+      "login": "a",
+      "password": "a"
+    },
+    {
+      "firstName": "julek",
+      "lastName": "was",
+      "adress": "dabrowskiego",
+      "login": "login@gm.com",
+      "password": "123",
+      "id": "IWBvSwu"
+    },
+    {
+      "firstName": "niko",
+      "lastName": "was",
+      "adress": "ulica",
+      "login": "pies@gm.com",
+      "password": "123",
+      "id": "-HFcv18"
+    },
+    {
+      "firstName": "w",
+      "lastName": "a",
+      "adress": "s",
+      "login": "d",
+      "password": "f",
+      "id": "zgbCtDM"
+    },
+    {
+      "firstName": "a",
+      "lastName": "a",
+      "adress": "a",
+      "login": "a",
+      "password": "a",
+      "id": "q2ldQZx"
+    },
+    {
+      "firstName": "b",
+      "lastName": "b",
+      "adress": "b",
+      "login": "b",
+      "password": "b",
+      "id": "26Istxf"
+    },
+    {
+      "firstName": "a",
+      "lastName": "c",
+      "adress": "v",
+      "login": "a",
+      "password": "c",
+      "id": "S5-irqB"
+    },
+    {
+      "firstName": "c",
+      "lastName": "a",
+      "adress": "c",
+      "login": "a",
+      "password": "v",
+      "id": "_1WjcfG"
+    },
+    {
+      "firstName": "a",
+      "lastName": "s",
+      "adress": "s",
+      "login": "s",
+      "password": "c",
+      "id": "7bhmaei"
+    },
+    {
+      "firstName": "Kamil",
+      "lastName": "Miś",
+      "adress": "Damrota 63",
+      "login": "wisla@gm.com",
+      "password": "123",
+      "id": "C3NV3Ed"
+    }
   ],
   "orders": [
     {
@@ -374,6 +445,120 @@
         }
       ],
       "totalPrice": "58.81"
+    },
+    {
+      "user": {
+        "firstName": "b",
+        "lastName": "b",
+        "adress": "b"
+      },
+      "payment": "byBLIK",
+      "items": [
+        {
+          "id": "1",
+          "name": "Krzesło tarasowe",
+          "quantity": 1,
+          "price": 58.815
+        }
+      ],
+      "totalPrice": "58.81",
+      "id": "K10H76D"
+    },
+    {
+      "user": {
+        "firstName": "Kamil",
+        "lastName": "Miś",
+        "adress": "Damrota 63"
+      },
+      "payment": "byBLIK",
+      "items": [
+        {
+          "id": "1",
+          "name": "Krzesło tarasowe",
+          "quantity": 1,
+          "price": 58.815
+        }
+      ],
+      "totalPrice": "58.81",
+      "id": "RDUmobm"
+    },
+    {
+      "user": {
+        "firstName": "Kamil",
+        "lastName": "Miś",
+        "adress": "Damrota 63"
+      },
+      "payment": "byBLIK",
+      "items": [
+        {
+          "id": "1",
+          "name": "Krzesło tarasowe",
+          "quantity": 1,
+          "price": 58.815
+        }
+      ],
+      "totalPrice": "58.81",
+      "id": "630wNW8"
+    },
+    {
+      "user": {
+        "firstName": "Kamil",
+        "lastName": "Miś",
+        "adress": "Damrota 63"
+      },
+      "payment": "onDelivery",
+      "items": [
+        {
+          "id": "1",
+          "name": "Krzesło tarasowe",
+          "quantity": 1,
+          "price": 58.815
+        }
+      ],
+      "totalPrice": "58.81",
+      "id": "ha0Is_E"
+    },
+    {
+      "user": {
+        "firstName": "Kamil",
+        "lastName": "Miś",
+        "adress": "Damrota 63"
+      },
+      "payment": "byBLIK",
+      "items": [
+        {
+          "id": "1",
+          "name": "Krzesło tarasowe",
+          "quantity": 1,
+          "price": 58.815
+        }
+      ],
+      "totalPrice": "58.81",
+      "id": "6fEFa15"
+    },
+    {
+      "user": {
+        "firstName": "Kamil",
+        "lastName": "Miś",
+        "adress": "Damrota 63"
+      },
+      "payment": "byCard",
+      "items": [
+        {
+          "id": "1",
+          "name": "Krzesło tarasowe",
+          "quantity": 4,
+          "price": 58.815
+        },
+        {
+          "id": "2",
+          "name": "Drewniana komoda",
+          "quantity": 1,
+          "price": 28.89
+        }
+      ],
+      "totalPrice": "264.15",
+      "id": "xEQcjtm"
     }
   ],
   "products": [

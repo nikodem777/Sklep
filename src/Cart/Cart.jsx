@@ -12,7 +12,9 @@ import {
   plusQuantity,
 } from "../store/cart";
 
-const Cart = () => {
+const Cart = ({ isLoggedIn, currentUserData }) => {
+  console.log(currentUserData);
+  const [active, setActive] = useState("anonimowy");
   const cart = useStore($cartWithDiscount);
   const total = useStore($total);
   const [userInfo, setuserInfo] = useState({
@@ -20,6 +22,16 @@ const Cart = () => {
     lastName: "",
     adress: "",
   });
+  const loggedUserData = currentUserData
+    ? {
+        firstName: currentUserData.firstName,
+        lastName: currentUserData.lastName,
+        adress: currentUserData.adress,
+      }
+    : { firstName: "", lastName: "", adress: "" };
+  const fillLoggedUser = () => {
+    setuserInfo(loggedUserData);
+  };
   const [paymentInfo, setpaymentInfo] = useState("");
 
   const handleUser = (e) => {
@@ -33,12 +45,6 @@ const Cart = () => {
   const handlePayment = (e) => {
     setpaymentInfo(e.target.value);
   };
-  useEffect(() => {
-    console.log("Aktualny userInfo:", userInfo);
-  }, [userInfo]);
-  useEffect(() => {
-    console.log("Aktualny paymentInfo:", paymentInfo);
-  }, [paymentInfo]);
   const [message, setMessage] = useState("");
   const [messageOrder, setMessageOrder] = useState("");
   const [loading, setLoading] = useState(false);
@@ -148,6 +154,36 @@ const Cart = () => {
         <div className={styles.splitData}>
           <div className={styles.clientInformation}>
             <h1>Dane klienta</h1>
+
+            {isLoggedIn ? (
+              <div className={styles.toggleContainer}>
+                <button
+                  className={`${styles.toggleBtn} ${
+                    active === "anonimowy" ? styles.active : ""
+                  }`}
+                  onClick={() => {
+                    setActive("anonimowy");
+                    setuserInfo({ firstName: "", lastName: "", adress: "" });
+                  }}
+                >
+                  Anonimowy
+                </button>
+                <button
+                  className={`${styles.toggleBtn} ${
+                    active === "zaloguj" ? styles.active : ""
+                  }`}
+                  onClick={() => {
+                    setActive("zaloguj");
+                    fillLoggedUser();
+                  }}
+                >
+                  Zalogowany
+                </button>
+              </div>
+            ) : (
+              <p>Kupujesz jako niezalogowany</p>
+            )}
+
             <p>Imię:</p>
             <input
               type="text"
