@@ -13,7 +13,7 @@ const Navbar = ({ onScrollToFooter, isLoggedIn, handleLogout }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className={styles.box}>
+    <div className={`${styles.box} section`}>
       <nav className={styles.container}>
         <div className={styles.logo}>
           <Link to="/">

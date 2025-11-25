@@ -4,7 +4,7 @@ import LampChair from "../../assets/lampChair.png";
 const Entry = () => {
   return (
     <>
-      <div className={styles.box}>
+      <div className={`${styles.box} section`}>
         <div className={styles.container}>
           <div className={styles.textBox}>
             <p>-45% MEGA OFERTA</p>

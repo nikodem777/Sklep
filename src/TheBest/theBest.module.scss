@@ -2,45 +2,84 @@
   display: flex;
   justify-content: center;
   background-color: #3f4c49;
-  padding-top: 30px;
+  padding: 30px 0; // top i bottom
 }
+
 .container {
   width: 80vw;
 }
+
 .header {
   text-align: center;
+  margin-bottom: 40px;
+
   h1 {
     color: #dfeee3;
     font-family: "Playfair Display", sans-serif;
     margin-bottom: 10px;
     line-height: 1.25;
     font-weight: 700;
+    font-size: 48px;
+
+    @media (max-width: 1140px) {
+      font-size: 40px;
+    }
+    @media (max-width: 768px) {
+      font-size: 32px;
+    }
   }
+
   p {
     color: #aeacac;
+    font-size: 18px;
+
+    @media (max-width: 768px) {
+      font-size: 16px;
+    }
   }
 }
+
 .split {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+
+  @media (max-width: 1140px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
 }
+
 .box2 {
-  padding-top: 30px;
+  padding: 30px 0;
   width: 200px;
+  text-align: center;
+
   p {
     color: #aeacac;
+    font-size: 14px;
   }
+
   h2 {
     color: #dfeee3;
+    font-size: 18px;
+    margin-top: 10px;
   }
 }
+
 .imgBox {
   display: flex;
   justify-content: center;
+  align-items: center;
 
   img {
     padding-top: 10px;
     margin-right: 9px;
     height: 70px;
+    width: auto;
   }
 }

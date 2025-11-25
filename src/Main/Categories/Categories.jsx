@@ -9,7 +9,7 @@ import Category from "./Category";
 const Categories = () => {
   return (
     <>
-      <div className={styles.box}>
+      <div className={`${styles.box} section`}>
         <div className={styles.container}>
           <h1>Wybierz Kategorię</h1>
           <p>Wybierz swój nowy produkt z pośród naszych kategorii</p>

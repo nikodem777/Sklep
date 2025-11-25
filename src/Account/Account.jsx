@@ -6,7 +6,7 @@ const Account = ({ currentUserData }) => {
   const { firstName, lastName, adress } = currentUserData;
 
   return (
-    <div className={styles.box}>
+    <div className={`${styles.box} section`}>
       <div className={styles.container}>
         <h1>Informacje dotyczące konta</h1>
         <div className={styles.cont2}>

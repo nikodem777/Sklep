@@ -98,7 +98,7 @@ const Login = ({ setIsLoggedIn }) => {
   };
 
   return (
-    <div className={styles.box}>
+    <div className={`${styles.box} section`}>
       <div className={styles.container}>
         <div className={styles.center}>
           <div className={styles.toggleContainer}>

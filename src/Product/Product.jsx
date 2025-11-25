@@ -43,7 +43,7 @@ const Product = ({ maxLines = 2 }) => {
     : {};
 
   return (
-    <div className={styles.box}>
+    <div className={`${styles.box} section`}>
       <div className={styles.container}>
         <div className={styles.split}>
           <div className={styles.imgBox}>

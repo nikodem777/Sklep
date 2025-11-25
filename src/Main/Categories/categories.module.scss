@@ -2,39 +2,93 @@
   display: flex;
   justify-content: center;
   background-color: white;
-  padding-bottom: 30px;
 }
+
 .container {
   width: 80vw;
   text-align: center;
+
   h1 {
     font-size: 50px;
     color: #1c1c1c;
-
     margin-bottom: 0;
   }
+
   p {
     color: #494949;
     margin-bottom: 40px;
   }
 }
+
+/* --- GRID — pełna szerokość (duże ekrany 1440px+) --- */
 .split {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
 }
+
+/* --- Pojedyncza kategoria --- */
 .categoryBox {
   margin: 20px;
   text-align: center;
   padding: 19px 0 0 0;
   background-color: #f5f5f5;
   font-weight: 600;
-  &:nth-child(2) {
-    padding-top: 0px;
-  }
+  transition: box-shadow 0.2s ease;
+
   &:hover {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   }
+
   p {
     margin-bottom: 19px;
+  }
+}
+
+/* -------------------------------- */
+/* ------- RESPONSYWNOŚĆ ---------- */
+/* -------------------------------- */
+
+/* 1200px – 1024px → 4 kolumny */
+@media (max-width: 1200px) {
+  .split {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* 1024px – 768px → 3 kolumny */
+@media (max-width: 1024px) {
+  .split {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .container h1 {
+    font-size: 42px;
+  }
+}
+
+/* 768px – 480px → 2 kolumny */
+@media (max-width: 768px) {
+  .split {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .container h1 {
+    font-size: 36px;
+  }
+}
+
+/* 480px i mniej → 1 kolumna */
+@media (max-width: 480px) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+
+  .categoryBox {
+    margin: 10px 0;
+  }
+
+  .container h1 {
+    font-size: 30px;
   }
 }

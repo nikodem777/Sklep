@@ -3,53 +3,120 @@
   justify-content: center;
   background-color: #eff1f5;
   padding: 50px 0;
-}
-.container {
-  width: 80vw;
-}
-.split {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  h3 {
-    font-size: 35px;
-    color: #1e1c1c;
+
+  .container {
+    width: 80vw;
   }
-  p {
+
+  .split {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+
+    h3 {
+      font-size: 35px;
+      color: #1e1c1c;
+      margin-bottom: 10px;
+
+      @media (max-width: 1140px) {
+        font-size: 28px;
+      }
+      @media (max-width: 768px) {
+        font-size: 24px;
+      }
+    }
+
+    p {
+      color: #494949;
+      line-height: 25px;
+
+      @media (max-width: 768px) {
+        font-size: 14px;
+        line-height: 20px;
+      }
+    }
+  }
+
+  .followUs {
+    width: 200px;
+    margin-bottom: 20px;
     color: #494949;
-    line-height: 25px;
+    line-height: 42px;
+
+    img {
+      margin-top: 30px;
+      max-width: 100%;
+      height: auto;
+    }
+
+    h4 {
+      font-size: 25px;
+      @media (max-width: 768px) {
+        font-size: 18px;
+      }
+    }
+
+    .picture {
+      display: flex;
+      gap: 20px;
+
+      img {
+        width: 30px;
+        height: 30px;
+
+        @media (max-width: 768px) {
+          width: 24px;
+          height: 24px;
+        }
+      }
+    }
+  }
+
+  .contactUs {
+    h4 {
+      font-size: 20px;
+      color: #1e1c1c;
+
+      @media (max-width: 768px) {
+        font-size: 16px;
+      }
+    }
+  }
+
+  @media (max-width: 1140px) {
+    .split {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .split {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      text-align: center;
+    }
+
+    .followUs {
+      width: auto;
+      line-height: normal;
+    }
   }
 }
 
-.followUs {
-  width: 200px;
-  margin-bottom: 20px;
-  color: #494949;
-  line-height: 42px;
-  img {
-    margin-top: 30px;
-  }
-  h4 {
-    font-size: 25px;
-  }
-  .picture {
-    display: flex;
-    gap: 20px;
-  }
-}
-.contactUs {
-  h4 {
-    font-size: 20px;
-    color: #1e1c1c;
-  }
-}
 .Box2 {
   background-color: white;
   text-align: center;
+
   p {
     padding: 20px 0;
     font-size: 20px;
+
     span {
       font-weight: 900;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 16px;
     }
   }
 }

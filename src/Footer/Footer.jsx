@@ -9,7 +9,7 @@ import Be from "../assets/be.svg";
 const Footer = forwardRef((props, ref) => {
   return (
     <>
-      <div className={styles.box} ref={ref}>
+      <div className={`${styles.box} section`} ref={ref}>
         <div className={styles.container}>
           <div className={styles.split}>
             <div className={styles.followUs}>

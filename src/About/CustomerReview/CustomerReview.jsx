@@ -5,7 +5,7 @@ import Quotes from "../../assets/quotes.svg";
 const CustomerReview = () => {
   return (
     <>
-      <div className={styles.box}>
+      <div className={`${styles.box} section`}>
         <div className={styles.container}>
           <div className={styles.header}>
             <h1>Dobre Opinie Klientów</h1>

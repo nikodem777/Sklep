@@ -4,6 +4,7 @@
   background-color: white;
   padding-bottom: 30px;
 }
+
 .container {
   width: 80vw;
   h1 {
@@ -13,22 +14,26 @@
     letter-spacing: 3px;
   }
 }
+
+// Produkt
 .productBox {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-
+  grid-template-columns: repeat(5, 1fr);
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+
   .last {
     display: flex;
     justify-content: right;
   }
+
   img {
     width: 150px;
     height: 150px;
     border: #494949 solid 1px;
     border-radius: 7px;
   }
+
   p {
     font-size: 30px;
   }
@@ -37,6 +42,7 @@
     font-weight: 500;
     color: #494949;
   }
+
   .quantity {
     display: flex;
     align-items: center;
@@ -60,16 +66,35 @@
       border: 1px solid #000;
       border-radius: 8px;
       font-size: 26px;
+      margin: 0 10px;
     }
   }
+
+  @media (max-width: 1440px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
 }
+
+// Ceny
 .oldPrice {
   text-decoration: line-through;
   color: #d5d2d2;
 }
+
 .newPrice {
   font-weight: 600;
 }
+
+// Podsumowanie
 .summary {
   width: 100%;
   border-bottom: black solid 2px;
@@ -93,63 +118,80 @@
     }
   }
 }
+
+// Dane klienta i płatność
 .splitData {
-  margin: 50px 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin: 50px 0;
   color: #494949;
+
   .clientInformation {
     border-right: black 2px solid;
+    padding-right: 20px;
+
     h1 {
       font-size: 45px;
-      color: #494949;
       font-weight: 500;
+      color: #494949;
     }
+
     p {
       font-size: 25px;
     }
+
     input {
       width: 170px;
       height: 35px;
       border-radius: 10px;
       padding-left: 10px;
+      margin-bottom: 15px;
+    }
+
+    @media (max-width: 1024px) {
+      border-right: none;
+      border-bottom: black 2px solid;
+      padding-bottom: 20px;
     }
   }
+
   .payment {
     margin-left: 50px;
+
     h1 {
       font-size: 45px;
-      color: #494949;
       font-weight: 500;
+      color: #494949;
     }
 
     .checkPayment {
       display: flex;
-      margin: 10px 0;
-      color: #494949;
+      align-items: center;
+      margin: 80px 0;
+      gap: 10px;
+
       p {
+        margin: 0;
         font-size: 25px;
-        margin-left: 10px;
       }
-      input {
-        width: 30px;
-      }
-      .radio {
-        display: grid;
-        place-content: center;
+
+      input.radio {
         appearance: none;
-        margin: 27px 0 0;
         width: 30px;
         height: 30px;
-        align-items: center;
-        background-color: white;
-        border: #494949 1px solid;
         border-radius: 50%;
-      }
-      .radio:checked {
-        background-color: #494949;
+        border: 1px solid #494949;
+        background-color: white;
+        display: grid;
+        place-content: center;
+
+        &:checked {
+          background-color: #494949;
+        }
       }
     }
+
     button {
       margin-top: 20px;
       text-align: center;
@@ -160,13 +202,24 @@
       font-weight: 500;
       background-color: white;
       border-radius: 7px;
+      transition: 0.3s;
+
       &:hover {
         color: white;
         background-color: #494949;
       }
     }
   }
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+    .payment {
+      margin-left: 0;
+    }
+  }
 }
+
+// Modal zamówienia
 .overlay {
   position: fixed;
   inset: 0;
@@ -174,7 +227,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 999; // nad całą stroną
+  z-index: 999;
 
   .modal {
     background-color: white;
@@ -185,17 +238,20 @@
     align-items: center;
     border-radius: 8px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+
     .title {
       margin-top: 30px;
       text-transform: uppercase;
       font-size: 30px;
       font-weight: 500;
     }
+
     .id {
       margin: 70px 0;
       font-weight: 700;
       font-size: 30px;
     }
+
     .closeBtn {
       height: 60px;
       width: 220px;
@@ -204,16 +260,17 @@
       transition: 0.2s;
       border-radius: 8px;
       font-weight: 500;
+
       &:hover {
         background-color: #fff;
         color: #494949;
-        font-weight: 500;
         border: 2px solid #494949;
       }
     }
   }
 }
 
+// Toggle logowania
 .toggleContainer {
   display: flex;
   border: 1px solid #ccc;

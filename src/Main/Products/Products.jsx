@@ -10,7 +10,7 @@ const Products = () => {
   }, []);
   return (
     <>
-      <div className={styles.box}>
+      <div className={`${styles.box} section`}>
         <div className={styles.container}>
           <h1>Najnowsza kolekcja</h1>
           <p>Najlepiej sprzedawane i nowe produkty</p>

@@ -3,7 +3,7 @@ import styles from "./numbers.module.scss";
 const Numbers = () => {
   return (
     <>
-      <div className={styles.container}>
+      <div className={`${styles.container} section`}>
         <div className={styles.numbers}>
           <div className="num1">
             <h3>20k+</h3>

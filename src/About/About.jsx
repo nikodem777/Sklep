@@ -6,7 +6,7 @@ import CustomerReview from "./CustomerReview/CustomerReview";
 const About = () => {
   return (
     <>
-      <div className={styles.box}>
+      <div className={`${styles.box} section`}>
         <div className={styles.container}>
           <div className={styles.container2}>
             <div className={styles.text}>

@@ -7,7 +7,7 @@ import Star from "../assets/star-light.svg";
 const TheBest = () => {
   return (
     <>
-      <div className={styles.box}>
+      <div className={`${styles.box} section`}>
         <div className={styles.container}>
           <div className={styles.header}>
             <h1>Dlaczego jesteśmy najlepsi?</h1>

@@ -2,46 +2,130 @@
   display: flex;
   justify-content: center;
   padding: 80px 0;
+
+  @media (max-width: 1140px) {
+    padding: 50px 0;
+  }
+
+  @media (max-width: 768px) {
+    padding: 30px 0;
+  }
 }
+
 .container {
   width: 80vw;
 }
+
 .split {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr auto;
+  gap: 50px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .textBtn {
+    height: 50px;
+    margin-top: 25px;
+    border-radius: 20px;
+    background-color: #494949;
+    color: white;
+    border: #494949 solid 1px;
+    font-size: 20px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      font-size: 18px;
+      padding: 15px;
+    }
+  }
 }
+
 .imgBox {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-right: 50px;
+
   img {
     height: 550px;
     width: 550px;
     border: black solid 1px;
     border-radius: 20%;
+
+    @media (max-width: 1140px) {
+      height: 450px;
+      width: 450px;
+    }
+
+    @media (max-width: 768px) {
+      height: 300px;
+      width: 300px;
+      margin-right: 0;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    margin-right: 0;
   }
 }
+
 .textBox {
   text-align: left;
+
   h1 {
     font-size: 60px;
     padding-top: 0;
     margin-top: 0;
+
+    @media (max-width: 1140px) {
+      font-size: 50px;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 36px;
+      text-align: center;
+    }
   }
+
   p {
     color: #494949;
-  }
-  .cena {
-    font-size: 40px;
-  }
-  .opis {
-    font-size: 20px;
-    span {
-      font-weight: 700;
+
+    &.cena {
+      font-size: 40px;
+
+      @media (max-width: 1140px) {
+        font-size: 32px;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 24px;
+        text-align: center;
+      }
+    }
+
+    &.opis {
+      font-size: 20px;
+
+      span {
+        font-weight: 700;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 16px;
+        text-align: center;
+      }
     }
   }
 }
+
 .cartBtn {
   height: 50px;
   margin-top: 25px;
@@ -56,21 +140,10 @@
   justify-content: center;
   font-weight: 600;
   margin: 30px 0;
-}
-.split {
-  display: flex;
-  .textBtn {
-    height: 50px;
-    margin-top: 25px;
-    border-radius: 20px;
-    background-color: #494949;
-    color: white;
-    border: #494949 solid 1px;
-    font-size: 20px;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    font-size: 18px;
+    padding: 15px;
   }
 }

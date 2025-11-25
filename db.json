@@ -559,6 +559,30 @@
       ],
       "totalPrice": "264.15",
       "id": "xEQcjtm"
+    },
+    {
+      "user": {
+        "firstName": "Kamil",
+        "lastName": "Miś",
+        "adress": "Damrota 63"
+      },
+      "payment": "byCard",
+      "items": [
+        {
+          "id": "1",
+          "name": "Krzesło tarasowe",
+          "quantity": 3,
+          "price": 58.815
+        },
+        {
+          "id": "2",
+          "name": "Drewniana komoda",
+          "quantity": 2,
+          "price": 28.89
+        }
+      ],
+      "totalPrice": "234.22",
+      "id": "6YUvw7c"
     }
   ],
   "products": [
